@@ -139,7 +139,7 @@ body {
   <div class="header">
     <h1>📋 ตารางงานคุณป้า รายวัน</h1>
     <div class="disclaimer">⚠️ โรคยังไม่ยืนยัน ทำตามสเต็ปอย่างระมัดระวัง</div>
-    <div id="syncIndicator" class="sync-status">ระบบพร้อมบันทึกส่งพัทลุง</div>
+    <div id="syncIndicator" class="sync-status">ระบบเปิดใช้งานแบบเสถียร (แผนสอง)</div>
   </div>
 
   <div class="section">
@@ -310,17 +310,16 @@ body {
 </div>
 
 <script>
-// ================= CONFIGURATION =================
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/formResponse";
+// ลิงก์หลักสำหรับเปิดส่งข้อมูลแบบตรงตัว (ไม่มีวันโดนบล็อก)
+const VIEW_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/viewform";
 const ENTRY_TASK_ID = "entry.2076841301";
 const ENTRY_STATUS = "entry.1858284539";
 
-const REPORT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/formResponse";
+const VIEW_REPORT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/viewform";
 const ENTRY_RASH = "entry.1608891468";
 const ENTRY_ITCH = "entry.1973469220";
 const ENTRY_WOUND = "entry.1240744944";
 const ENTRY_MED = "entry.1043049446";
-// ===============================================================
 
 const KEY = 'maejrim_tasks_v1.1';
 
@@ -343,6 +342,7 @@ function updateUI() {
     }
   });
 }
+
 function toggleTask(id) {
   const state = loadState();
   state[id] = !state[id];
@@ -350,27 +350,9 @@ function toggleTask(id) {
   saveState(state);
   updateUI();
   
-  const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งข้อมูลไปพัทลุง...";
-  indicator.style.color = "#d48806";
-  
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append(ENTRY_TASK_ID, id);
-  urlSearchParams.append(ENTRY_STATUS, currentStatus);
-  
-  fetch(GOOGLE_FORM_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: urlSearchParams.toString()
-  }).then(() => {
-    indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";
-    indicator.style.color = "#389e0d";
-  }).catch((error) => {
-    console.error("Error:", error);
-    indicator.innerText = "❌ เน็ตหลุด! แต่บันทึกในเครื่องแล้ว";
-    indicator.style.color = "#cf1322";
-  });
+  // แผนสอง: ยิงลิงก์เปิดหน้าฟอร์มจริงขึ้นมาในแท็บใหม่แบบออโต้ติ๊กคำตอบให้เลย
+  const finalUrl = `${VIEW_FORM_URL}?usp=pp_url&${ENTRY_TASK_ID}=${id}&${ENTRY_STATUS}=${currentStatus}`;
+  window.open(finalUrl, '_blank');
 }
 
 function sendDailyReport() {
@@ -384,62 +366,25 @@ function sendDailyReport() {
     return;
   }
 
-  const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งบันทึกประจำวัน...";
-  indicator.style.color = "#d48806";
-
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append(ENTRY_RASH, rash);
-  urlSearchParams.append(ENTRY_ITCH, itch);
-  urlSearchParams.append(ENTRY_WOUND, wound);
-  urlSearchParams.append(ENTRY_MED, med);
-
-  fetch(REPORT_FORM_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: urlSearchParams.toString()
-  }).then(() => {
-    indicator.innerText = "✓ ส่งบันทึกอาการประจำวันสำเร็จแล้ว ✨";
-    indicator.style.color = "#389e0d";
-    alert('ส่งบันทึกอาการประจำวันเรียบร้อยแล้วค่ะคุณป้า 🎉');
-  }).catch((error) => {
-    console.error("Error:", error);
-    indicator.innerText = "❌ ส่งบันทึกไม่สำเร็จ ตรวจสอบอินเทอร์เน็ต";
-    indicator.style.color = "#cf1322";
-  });
+  // แผนสอง: ยิงลิงก์เปิดหน้าฟอร์มบันทึกจริงขึ้นมาแบบออโต้ติ๊กคำตอบให้ครบ 4 ข้อ
+  const finalUrl = `${VIEW_REPORT_URL}?usp=pp_url&${ENTRY_RASH}=${encodeURIComponent(rash)}&${ENTRY_ITCH}=${encodeURIComponent(itch)}&${ENTRY_WOUND}=${encodeURIComponent(wound)}&${ENTRY_MED}=${encodeURIComponent(med)}`;
+  window.open(finalUrl, '_blank');
 }
 
 function resetAll() {
   if (!confirm('คุณป้าต้องการล้างรายการทั้งหมดเพื่อเริ่มวันใหม่ใช่ไหมครับ?')) return;
-  const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งคำสั่งเริ่มวันใหม่...";
   
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append(ENTRY_TASK_ID, "ALL_TASKS");
-  urlSearchParams.append(ENTRY_STATUS, "RESET_DAY");
+  const finalUrl = `${VIEW_FORM_URL}?usp=pp_url&${ENTRY_TASK_ID}=ALL_TASKS&${ENTRY_STATUS}=RESET_DAY`;
+  window.open(finalUrl, '_blank');
   
-  fetch(GOOGLE_FORM_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: urlSearchParams.toString()
-  }).then(() => {
-    try { localStorage.removeItem(KEY); } catch(e) {}
-    document.getElementById('rep_rash').value = "";
-    document.getElementById('rep_itch').value = "";
-    document.getElementById('rep_wound').value = "";
-    document.getElementById('rep_med').value = "";
-    updateUI();
-    indicator.innerText = "✓ เริ่มวันใหม่สำเร็จ (ระบบซิงค์แล้ว)";
-    indicator.style.color = "#389e0d";
-  }).catch(() => {
-    try { localStorage.removeItem(KEY); } catch(e) {}
-    updateUI();
-    indicator.innerText = "⚠️ ล้างในเครื่องแล้ว แต่เน็ตขัดข้อง";
-    indicator.style.color = "#cf1322";
-  });
+  try { localStorage.removeItem(KEY); } catch(e) {}
+  document.getElementById('rep_rash').value = "";
+  document.getElementById('rep_itch').value = "";
+  document.getElementById('rep_wound').value = "";
+  document.getElementById('rep_med').value = "";
+  updateUI();
 }
+
 window.onload = function() { updateUI(); };
 </script>
 
