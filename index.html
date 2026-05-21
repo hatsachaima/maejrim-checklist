@@ -1,370 +1,353 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="th">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Checklist ลุง">
+<title>Checklist ดูแลคุณลุง @แม่จริม</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Sarabun', 'Thonburi', 'Tahoma', sans-serif;
+  background: #f5f0eb;
+  color: #1a1614;
+  font-size: 16px;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.app { max-width: 480px; margin: 0 auto; padding: 14px 12px; }
+
+/* HEADER */
+.header {
+  background: #1a1614;
+  border-radius: 16px;
+  padding: 18px 20px 16px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.header h1 { font-size: 20px; font-weight: 700; color: #ffffff; line-height: 1.3; }
+.header .disclaimer { font-size: 12px; color: #cc6666; margin-top: 6px; font-weight: bold; }
+.header .sync-status { font-size: 11px; color: #a0a0a0; margin-top: 4px; }
+
+/* SECTION CARD */
+.section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f5f0eb;
+  display: flex;
+  align-items: center;
+}
+.title-morning { color: #d48806; }
+.title-evening { color: #1d39c4; }
+.title-med { color: #389e0d; }
+.title-monitor { color: #cf1322; }
+
+/* CHECK ITEM */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px dashed #f0e6df;
+}
+.item:last-child { border-bottom: none; }
+.item-text { flex: 1; padding-right: 12px; }
+.item-title { font-size: 15px; font-weight: 600; color: #2c2520; margin-bottom: 2px; }
+.item-desc { font-size: 13px; color: #665e57; line-height: 1.4; }
+.item-desc strong { color: #bd3a00; }
+
+/* ACTION BUTTON */
+.check-btn {
+  background: #fdfaf7;
+  border: 2px solid #d4c4b7;
+  color: #5c4d43;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+  text-align: center;
+}
+.check-btn.done {
+  background: #389e0d;
+  border-color: #389e0d;
+  color: #ffffff;
+}
+.check-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* RESET BUTTON */
+.reset-container { text-align: center; margin-top: 20px; }
+.reset-btn {
+  background: #e8e8e8;
+  border: none;
+  color: #666;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="th"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="apple-mobile-web-app-title" content="Checklist ลุง"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;Checklist ดูแลคุณลุง @แม่จริม&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;style&gt;</span></p>
-<p class="p1"><span class="s1">* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family: 'Sarabun', 'Thonburi', 'Tahoma', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background: #f5f0eb;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color: #1a1614;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>min-height: 100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding-bottom: 40px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">.app { max-width: 480px; margin: 0 auto; padding: 14px 12px; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* HEADER */</span></p>
-<p class="p1"><span class="s1">.header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background: #1a1614;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding: 18px 20px 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin-bottom: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>text-align: center;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.header h1 { font-size: 20px; font-weight: 700; color: #ffffff; line-height: 1.3; }</span></p>
-<p class="p1"><span class="s1">.header .disclaimer { font-size: 12px; color: #cc6666; margin-top: 6px; font-weight: bold; }</span></p>
-<p class="p1"><span class="s1">.header .sync-status { font-size: 11px; color: #a0a0a0; margin-top: 4px; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* SECTION CARD */</span></p>
-<p class="p1"><span class="s1">.section {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background: #ffffff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin-bottom: 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box-shadow: 0 2px 8px rgba(0,0,0,0.04);</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.section-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin-bottom: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding-bottom: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-bottom: 2px solid #f5f0eb;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>align-items: center;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.title-morning { color: #d48806; }</span></p>
-<p class="p1"><span class="s1">.title-evening { color: #1d39c4; }</span></p>
-<p class="p1"><span class="s1">.title-med { color: #389e0d; }</span></p>
-<p class="p1"><span class="s1">.title-monitor { color: #cf1322; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* CHECK ITEM */</span></p>
-<p class="p1"><span class="s1">.item {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>justify-content: space-between;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>align-items: flex-start;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding: 12px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-bottom: 1px dashed #f0e6df;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.item:last-child { border-bottom: none; }</span></p>
-<p class="p1"><span class="s1">.item-text { flex: 1; padding-right: 12px; }</span></p>
-<p class="p1"><span class="s1">.item-title { font-size: 15px; font-weight: 600; color: #2c2520; margin-bottom: 2px; }</span></p>
-<p class="p1"><span class="s1">.item-desc { font-size: 13px; color: #665e57; line-height: 1.4; }</span></p>
-<p class="p1"><span class="s1">.item-desc strong { color: #bd3a00; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* ACTION BUTTON */</span></p>
-<p class="p1"><span class="s1">.check-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background: #fdfaf7;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border: 2px solid #d4c4b7;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color: #5c4d43;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family: inherit;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size: 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding: 8px 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>transition: all 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>min-width: 80px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>text-align: center;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.check-btn.done {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background: #389e0d;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-color: #389e0d;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color: #ffffff;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.check-btn:disabled {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>opacity: 0.5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cursor: not-allowed;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* RESET BUTTON */</span></p>
-<p class="p1"><span class="s1">.reset-container { text-align: center; margin-top: 20px; }</span></p>
-<p class="p1"><span class="s1">.reset-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background: #e8e8e8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color: #666;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding: 10px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size: 13px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;div class="app"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;📋 ตารางงานคุณป้า รายวัน&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="disclaimer"&gt;⚠️ โรคยังไม่ยืนยัน ทำตามสเต็ปอย่างระมัดระวัง&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="syncIndicator" class="sync-status"&gt;ระบบพร้อมบันทึกส่งพัทลุง&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-title title-morning"&gt;☀️ ช่วงเช้า: บำรุงชุ่มชื้น (งดทายาทาร์)&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;1. พาลุงตากแดดเช้า&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;5-7 นาที ก่อน 08:30 น. &lt;strong&gt;ห้ามทาครีมใดๆ ก่อนตากแดด&lt;/strong&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="m1" onclick="toggleTask('m1')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;2. อาบน้ำเช้า&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ฟอกสบู่ทาร์/แชมพูทาร์เบาๆ &lt;strong&gt;ห้ามใช้หินขัดหรือบวบถูแผล&lt;/strong&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="m2" onclick="toggleTask('m2')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;3. ทายูเรียเปิดผิว&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ทาครีมยูเรีย 9% บางๆ &lt;strong&gt;เฉพาะจุดที่ผื่นหนาสากแห้ง&lt;/strong&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="m3" onclick="toggleTask('m3')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;4. โบกครีมบำรุงเซราวี&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ทา CeraVe ครีมหนาๆ ทั่วตัวทันทีหลังเช็ดตัวหมาด&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="m4" onclick="toggleTask('m4')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;5. จัดวิตามินหลังอาหาร&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ให้ลุงกิน Fish Oil + D3/K2 + B-Complex พร้อมน้ำสะอาด&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="m5" onclick="toggleTask('m5')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-title title-evening"&gt;🌙 ช่วงเย็น/ก่อนนอน: ห่อผ้าหมาด &amp; ฝังยา&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;1. อาบน้ำเย็นสบู่ทาร์&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ทำความสะอาดร่างกายอย่างเบามือเหมือนตอนเช้า&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="e1" onclick="toggleTask('e1')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;2. เตรียมชุดผ้าฝ้ายหมาด&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;แช่เสื้อกางเกงน้ำเงินในน้ำอุ่นเปล่า บิดให้หมาดที่สุดจนเกือบแห้ง&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="e2" onclick="toggleTask('e2')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;3. ลงครีมบำรุงก่อนห่อผ้า&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ทายูเรียบางๆ ตรงผื่น และโบก CeraVe ทับหนาๆ&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="e3" onclick="toggleTask('e3')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;4. ทำ Wet Wrap (30-45 นาที)&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ใส่ชุดน้ำเงินที่หมาด แล้วสวมชุดเหลืองแห้งทับ ห้ามเกิน 1 ชม. / ห้ามใส่ค้างคืน&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="e4" onclick="toggleTask('e4')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;5. ถอดผ้าและตากผิวแห้งสนิท&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ถอดชุดหมาดออก นั่งตากพัดลม 5-10 นาที จนผิวแห้งสนิทจริง&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="e5" onclick="toggleTask('e5')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;6. แต้มยาทาร์รักษา (Open Air)&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;แต้มครีมทาร์ 2% บางๆ เฉพาะผื่นหนา ปล่อยโล่งเข้านอน &lt;strong&gt;ห้ามทาวาสลีนทับทาร์&lt;/strong&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="e6" onclick="toggleTask('e6')"&gt;ทำแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-title title-med"&gt;💊 ยาแก้คันสีส้ม (ใช้เฉพาะเมื่อคันหนักนอนไม่หลับ)&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;กินยาแก้คันสีส้มครึ่งเม็ด (5 mg)&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;&lt;strong&gt;กฎเหล็ก:&lt;/strong&gt; วันไหนลุงดื่มเหล้า ห้ามกินยานี้เด็ดขาด! คืนไหนระงับอาการคันได้ให้งด&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="med1" onclick="toggleTask('med1')"&gt;กินแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="section-title title-monitor"&gt;🚨 เช็กแผลสด &amp; สัญญาณเตือนภัย&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;ตรวจเช็กแผลเกาถลอก&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;ถ้ามีแผลสด: ล้างน้ำเกลือ ➡️ แต้ม Mupirocin (จากหมอ) ➡️ โบกวาสลีนทับ &lt;strong&gt;(ห้ามทาทาร์ทับแผลสด)&lt;/strong&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="em1" onclick="toggleTask('em1')"&gt;เช็กแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="item-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-title"&gt;ตรวจสแกนตุ่มหนอง / แสบร้อน&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="item-desc"&gt;หากผิวแสบไหม้เฉียบพลัน หรือมีตุ่มหนองรอบรูขุมขน &lt;strong&gt;ให้หยุดครีมทาร์ทันที แล้วพาไป รพ.แม่จริม&lt;/strong&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="check-btn" id="em2" onclick="toggleTask('em2')"&gt;เช็กแล้ว&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="reset-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="reset-btn" onclick="resetAll()"&gt;🔄 ล้างรายการ เริ่มต้นวันใหม่&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1">// ================= CONFIGURATION (ตั้งค่าตรงนี้เรียบร้อยแล้ว) =================</span></p>
-<p class="p1"><span class="s1">const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/formResponse";<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">const ENTRY_TASK_ID = "entry.2076841301";<span class="Apple-converted-space">   </span></span></p>
-<p class="p1"><span class="s1">const ENTRY_STATUS = "entry.1858284539"; <span class="Apple-converted-space">   </span></span></p>
-<p class="p1"><span class="s1">// ===============================================================</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">const KEY = 'maejrim_tasks_v1.1';</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function loadState() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return JSON.parse(localStorage.getItem(KEY) || '{}');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} catch(e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return {};</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function saveState(state) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>localStorage.setItem(KEY, JSON.stringify(state));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} catch(e) {}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function updateUI() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const state = loadState();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.check-btn').forEach(function(btn) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const id = btn.id;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (state[id]) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.classList.add('done');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.innerText = "✓ เสร็จ";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.classList.remove('done');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.innerText = "ทำแล้ว";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function toggleTask(id) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const state = loadState();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>state[id] = !state[id];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const currentStatus = state[id] ? "done" : "undone";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>saveState(state);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>updateUI();</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const indicator = document.getElementById('syncIndicator');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>indicator.innerText = "กำลังส่งข้อมูลไปพัทลุง...";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>indicator.style.color = "#d48806";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const formData = new FormData();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>formData.append(ENTRY_TASK_ID, id);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>formData.append(ENTRY_STATUS, currentStatus);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>fetch(GOOGLE_FORM_URL, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>method: "POST",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body: formData,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mode: "no-cors"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}).then(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.style.color = "#389e0d";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}).catch((error) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>console.error("Error syncing with Google Sheets:", error);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.innerText = "❌ เน็ตหลุด! แต่บันทึกในเครื่องแล้ว";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.style.color = "#cf1322";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function resetAll() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!confirm('คุณป้าต้องการล้างรายการทั้งหมดเพื่อเริ่มวันใหม่ใช่ไหมครับ?')) return;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const indicator = document.getElementById('syncIndicator');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>indicator.innerText = "กำลังส่งคำสั่งเริ่มวันใหม่...";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const formData = new FormData();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>formData.append(ENTRY_TASK_ID, "ALL_TASKS");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>formData.append(ENTRY_STATUS, "RESET_DAY");</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>fetch(GOOGLE_FORM_URL, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>method: "POST",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body: formData,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mode: "no-cors"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}).then(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>try { localStorage.removeItem(KEY); } catch(e) {}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.innerText = "✓ เริ่มวันใหม่สำเร็จ (ระบบซิงค์แล้ว)";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.style.color = "#389e0d";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}).catch(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>try { localStorage.removeItem(KEY); } catch(e) {}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.innerText = "⚠️ ล้างในเครื่องแล้ว แต่เน็ตขัดข้อง";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>indicator.style.color = "#cf1322";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">window.onload = function() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>updateUI();</span></p>
-<p class="p1"><span class="s1">};</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+<div class="app">
+  
+  <div class="header">
+    <h1>📋 ตารางงานคุณป้า รายวัน</h1>
+    <div class="disclaimer">⚠️ โรคยังไม่ยืนยัน ทำตามสเต็ปอย่างระมัดระวัง</div>
+    <div id="syncIndicator" class="sync-status">ระบบพร้อมบันทึกส่งพัทลุง</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title title-morning">☀️ ช่วงเช้า: บำรุงชุ่มชื้น (งดทายาทาร์)</div>
+    
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">1. พาลุงตากแดดเช้า</div>
+        <div class="item-desc">5-7 นาที ก่อน 08:30 น. <strong>ห้ามทาครีมใดๆ ก่อนตากแดด</strong></div>
+      </div>
+      <button class="check-btn" id="m1" onclick="toggleTask('m1')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">2. อาบน้ำเช้า</div>
+        <div class="item-desc">ฟอกสบู่ทาร์/แชมพูทาร์เบาๆ <strong>ห้ามใช้หินขัดหรือบวบถูแผล</strong></div>
+      </div>
+      <button class="check-btn" id="m2" onclick="toggleTask('m2')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">3. ทายูเรียเปิดผิว</div>
+        <div class="item-desc">ทาครีมยูเรีย 9% บางๆ <strong>เฉพาะจุดที่ผื่นหนาสากแห้ง</strong></div>
+      </div>
+      <button class="check-btn" id="m3" onclick="toggleTask('m3')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">4. โบกครีมบำรุงเซราวี</div>
+        <div class="item-desc">ทา CeraVe ครีมหนาๆ ทั่วตัวทันทีหลังเช็ดตัวหมาด</div>
+      </div>
+      <button class="check-btn" id="m4" onclick="toggleTask('m4')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">5. จัดวิตามินหลังอาหาร</div>
+        <div class="item-desc">ให้ลุงกิน Fish Oil + D3/K2 + B-Complex พร้อมน้ำสะอาด</div>
+      </div>
+      <button class="check-btn" id="m5" onclick="toggleTask('m5')">ทำแล้ว</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title title-evening">🌙 ช่วงเย็น/ก่อนนอน: ห่อผ้าหมาด & ฝังยา</div>
+    
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">1. อาบน้ำเย็นสบู่ทาร์</div>
+        <div class="item-desc">ทำความสะอาดร่างกายอย่างเบามือเหมือนตอนเช้า</div>
+      </div>
+      <button class="check-btn" id="e1" onclick="toggleTask('e1')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">2. เตรียมชุดผ้าฝ้ายหมาด</div>
+        <div class="item-desc">แช่เสื้อกางเกงน้ำเงินในน้ำอุ่นเปล่า บิดให้หมาดที่สุดจนเกือบแห้ง</div>
+      </div>
+      <button class="check-btn" id="e2" onclick="toggleTask('e2')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">3. ลงครีมบำรุงก่อนห่อผ้า</div>
+        <div class="item-desc">ทายูเรียบางๆ ตรงผื่น และโบก CeraVe ทับหนาๆ</div>
+      </div>
+      <button class="check-btn" id="e3" onclick="toggleTask('e3')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">4. ทำ Wet Wrap (30-45 นาที)</div>
+        <div class="item-desc">ใส่ชุดน้ำเงินที่หมาด แล้วสวมชุดเหลืองแห้งทับ ห้ามเกิน 1 ชม. / ห้ามใส่ค้างคืน</div>
+      </div>
+      <button class="check-btn" id="e4" onclick="toggleTask('e4')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">5. ถอดผ้าและตากผิวแห้งสนิท</div>
+        <div class="item-desc">ถอดชุดหมาดออก นั่งตากพัดลม 5-10 นาที จนผิวแห้งสนิทจริง</div>
+      </div>
+      <button class="check-btn" id="e5" onclick="toggleTask('e5')">ทำแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">6. แต้มยาทาร์รักษา (Open Air)</div>
+        <div class="item-desc">แต้มครีมทาร์ 2% บางๆ เฉพาะผื่นหนา ปล่อยโล่งเข้านอน <strong>ห้ามทาวาสลีนทับทาร์</strong></div>
+      </div>
+      <button class="check-btn" id="e6" onclick="toggleTask('e6')">ทำแล้ว</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title title-med">💊 ยาแก้คันสีส้ม (ใช้เฉพาะเมื่อคันหนักนอนไม่หลับ)</div>
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">กินยาแก้คันสีส้มครึ่งเม็ด (5 mg)</div>
+        <div class="item-desc"><strong>กฎเหล็ก:</strong> วันไหนลุงดื่มเหล้า ห้ามกินยานี้เด็ดขาด! คืนไหนระงับอาการคันได้ให้งด</div>
+      </div>
+      <button class="check-btn" id="med1" onclick="toggleTask('med1')">กินแล้ว</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title title-monitor">🚨 เช็กแผลสด & สัญญาณเตือนภัย</div>
+    
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">ตรวจเช็กแผลเกาถลอก</div>
+        <div class="item-desc">ถ้ามีแผลสด: ล้างน้ำเกลือ ➡️ แต้ม Mupirocin (จากหมอ) ➡️ โบกวาสลีนทับ <strong>(ห้ามทาทาร์ทับแผลสด)</strong></div>
+      </div>
+      <button class="check-btn" id="em1" onclick="toggleTask('em1')">เช็กแล้ว</button>
+    </div>
+
+    <div class="item">
+      <div class="item-text">
+        <div class="item-title">ตรวจสแกนตุ่มหนอง / แสบร้อน</div>
+        <div class="item-desc">หากผิวแสบไหม้เฉียบพลัน หรือมีตุ่มหนองรอบรูขุมขน <strong>ให้หยุดครีมทาร์ทันที แล้วพาไป รพ.แม่จริม</strong></div>
+      </div>
+      <button class="check-btn" id="em2" onclick="toggleTask('em2')">เช็กแล้ว</button>
+    </div>
+  </div>
+
+  <div class="reset-container">
+    <button class="reset-btn" onclick="resetAll()">🔄 ล้างรายการ เริ่มต้นวันใหม่</button>
+  </div>
+
+</div>
+
+<script>
+// ================= CONFIGURATION =================
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/formResponse"; 
+const ENTRY_TASK_ID = "entry.2076841301";   
+const ENTRY_STATUS = "entry.1858284539";    
+// ===============================================================
+
+const KEY = 'maejrim_tasks_v1.1';
+
+function loadState() {
+  try {
+    return JSON.parse(localStorage.getItem(KEY) || '{}');
+  } catch(e) {
+    return {};
+  }
+}
+
+function saveState(state) {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(state));
+  } catch(e) {}
+}
+
+function updateUI() {
+  const state = loadState();
+  document.querySelectorAll('.check-btn').forEach(function(btn) {
+    const id = btn.id;
+    if (state[id]) {
+      btn.classList.add('done');
+      btn.innerText = "✓ เสร็จ";
+    } else {
+      btn.classList.remove('done');
+      btn.innerText = "ทำแล้ว";
+    }
+  });
+}
+
+function toggleTask(id) {
+  const state = loadState();
+  state[id] = !state[id];
+  const currentStatus = state[id] ? "done" : "undone";
+  
+  saveState(state);
+  updateUI();
+  
+  const indicator = document.getElementById('syncIndicator');
+  indicator.innerText = "กำลังส่งข้อมูลไปพัทลุง...";
+  indicator.style.color = "#d48806";
+  
+  const formData = new FormData();
+  formData.append(ENTRY_TASK_ID, id);
+  formData.append(ENTRY_STATUS, currentStatus);
+  
+  fetch(GOOGLE_FORM_URL, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors"
+  }).then(() => {
+    indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";
+    indicator.style.color = "#389e0d";
+  }).catch((error) => {
+    console.error("Error syncing with Google Sheets:", error);
+    indicator.innerText = "❌ เน็ตหลุด! แต่บันทึกในเครื่องแล้ว";
+    indicator.style.color = "#cf1322";
+  });
+}
+
+function resetAll() {
+  if (!confirm('คุณป้าต้องการล้างรายการทั้งหมดเพื่อเริ่มวันใหม่ใช่ไหมครับ?')) return;
+  
+  const indicator = document.getElementById('syncIndicator');
+  indicator.innerText = "กำลังส่งคำสั่งเริ่มวันใหม่...";
+  
+  const formData = new FormData();
+  formData.append(ENTRY_TASK_ID, "ALL_TASKS");
+  formData.append(ENTRY_STATUS, "RESET_DAY");
+  
+  fetch(GOOGLE_FORM_URL, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors"
+  }).then(() => {
+    try { localStorage.removeItem(KEY); } catch(e) {}
+    updateUI();
+    indicator.innerText = "✓ เริ่มวันใหม่สำเร็จ (ระบบซิงค์แล้ว)";
+    indicator.style.color = "#389e0d";
+  }).catch(() => {
+    try { localStorage.removeItem(KEY); } catch(e) {}
+    updateUI();
+    indicator.innerText = "⚠️ ล้างในเครื่องแล้ว แต่เน็ตขัดข้อง";
+    indicator.style.color = "#cf1322";
+  });
+}
+
+window.onload = function() {
+  updateUI();
+};
+</script>
+
 </body>
 </html>
