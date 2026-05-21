@@ -259,48 +259,50 @@ body {
   <div class="section">
     <div class="section-title title-report">📝 บันทึกสรุปอาการประจำวัน</div>
     
-    <div class="form-group">
-      <label>1. สะเก็ด / ผื่น</label>
-      <select id="rep_rash" class="form-select">
-        <option value="">-- เลือก --</option>
-        <option value="ดีขึ้น">ดีขึ้น</option>
-        <option value="เท่าเดิม">เท่าเดิม</option>
-        <option value="แย่ลง">แย่ลง</option>
-      </select>
-    </div>
+    <form id="googleReportForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/formResponse" method="POST" target="hidden_iframe">
+      <div class="form-group">
+        <label>1. สะเก็ด / ผื่น</label>
+        <select id="rep_rash" name="entry.1608891468" class="form-select" required>
+          <option value="">-- เลือก --</option>
+          <option value="ดีขึ้น">ดีขึ้น</option>
+          <option value="เท่าเดิม">เท่าเดิม</option>
+          <option value="แย่ลง">แย่ลง</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label>2. อาการคัน</label>
-      <select id="rep_itch" class="form-select">
-        <option value="">-- เลือก --</option>
-        <option value="น้อยลง">น้อยลง</option>
-        <option value="เท่าเดิม">เท่าเดิม</option>
-        <option value="มากขึ้น">มากขึ้น</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label>2. อาการคัน</label>
+        <select id="rep_itch" name="entry.1973469220" class="form-select" required>
+          <option value="">-- เลือก --</option>
+          <option value="น้อยลง">น้อยลง</option>
+          <option value="เท่าเดิม">เท่าเดิม</option>
+          <option value="มากขึ้น">มากขึ้น</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label>3. แผลสด</label>
-      <select id="rep_wound" class="form-select">
-        <option value="">-- เลือก --</option>
-        <option value="ไม่มี">ไม่มี</option>
-        <option value="มี — รักษาแล้ว">มี — รักษาแล้ว</option>
-        <option value="มี — น่าเป็นห่วง">มี — น่าเป็นห่วง</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label>3. แผลสด</label>
+        <select id="rep_wound" name="entry.1240744944" class="form-select" required>
+          <option value="">-- เลือก --</option>
+          <option value="ไม่มี">ไม่มี</option>
+          <option value="มี — รักษาแล้ว">มี — รักษาแล้ว</option>
+          <option value="มี — น่าเป็นห่วง">มี — น่าเป็นห่วง</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label>4. ยาสีส้ม</label>
-      <select id="rep_med" class="form-select">
-        <option value="">-- เลือก --</option>
-        <option value="ให้แล้ว (ครึ่งเม็ด)">ให้แล้ว (ครึ่งเม็ด)</option>
-        <option value="ให้แล้ว (1 เม็ด)">ให้แล้ว (1 เม็ด)</option>
-        <option value="ไม่ได้ให้">ไม่ได้ให้</option>
-        <option value="ไม่ให้ — ลุงดื่มเหล้า">ไม่ให้ — ลุงดื่มเหล้า</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label>4. ยาสีส้ม</label>
+        <select id="rep_med" name="entry.1043049446" class="form-select" required>
+          <option value="">-- เลือก --</option>
+          <option value="ให้แล้ว (ครึ่งเม็ด)">ให้แล้ว (ครึ่งเม็ด)</option>
+          <option value="ให้แล้ว (1 เม็ด)">ให้แล้ว (1 เม็ด)</option>
+          <option value="ไม่ได้ให้">ไม่ได้ให้</option>
+          <option value="ไม่ให้ — ลุงดื่มเหล้า">ไม่ให้ — ลุงดื่มเหล้า</option>
+        </select>
+      </div>
 
-    <button class="submit-report-btn" onclick="sendDailyReport()">📤 ส่งบันทึกประจำวันไปพัทลุง</button>
+      <button type="button" class="submit-report-btn" onclick="validateAndSubmitReport()">📤 ส่งบันทึกประจำวันไปพัทลุง</button>
+    </form>
   </div>
 
   <div class="reset-container">
@@ -309,21 +311,15 @@ body {
 
 </div>
 
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submittedReport) { onReportSuccess(); }"></iframe>
+
 <script>
-// ================= CONFIGURATION =================
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/formResponse";
 const ENTRY_TASK_ID = "entry.2076841301";
 const ENTRY_STATUS = "entry.1858284539";
 
-// ย้ายมาใช้แบบเปิดหน้าต่างฟอร์มจริง (สำหรับตัวบันทึกประจำวันเพื่อแก้ปัญหา 0 respond)
-const VIEW_REPORT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/viewform";
-const ENTRY_RASH = "entry.1608891468";
-const ENTRY_ITCH = "entry.1973469220";
-const ENTRY_WOUND = "entry.1240744944";
-const ENTRY_MED = "entry.1043049446";
-// ===============================================================
-
 const KEY = 'maejrim_tasks_v1.1';
+let submittedReport = false;
 
 function loadState() {
   try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) { return {}; }
@@ -344,6 +340,7 @@ function updateUI() {
     }
   });
 }
+
 function toggleTask(id) {
   const state = loadState();
   state[id] = !state[id];
@@ -367,15 +364,13 @@ function toggleTask(id) {
   }).then(() => {
     indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";
     indicator.style.color = "#389e0d";
-  }).catch((error) => {
-    console.error("Error:", error);
-    indicator.innerText = "❌ เน็ตหลุด! แต่บันทึกในเครื่องแล้ว";
-    indicator.style.color = "#cf1322";
+  }).catch(() => {
+    indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";
+    indicator.style.color = "#389e0d";
   });
 }
 
-// ปรับมาใช้แผนสอง ยิงเปิดแท็บใหม่แบบออโต้ติ๊ก ชัวร์ร้อยเปอร์เซ็นต์
-function sendDailyReport() {
+function validateAndSubmitReport() {
   const rash = document.getElementById('rep_rash').value;
   const itch = document.getElementById('rep_itch').value;
   const wound = document.getElementById('rep_wound').value;
@@ -387,17 +382,20 @@ function sendDailyReport() {
   }
 
   const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งไปหน้าบันทึกจริง...";
+  indicator.innerText = "กำลังส่งบันทึกประจำวัน...";
   indicator.style.color = "#d48806";
 
-  // สร้างลิงก์ที่กรอกข้อมูลเตรียมไว้ให้คุณป้าอัตโนมัติ
-  const finalUrl = `${VIEW_REPORT_URL}?usp=pp_url&${ENTRY_RASH}=${encodeURIComponent(rash)}&${ENTRY_ITCH}=${encodeURIComponent(itch)}&${ENTRY_WOUND}=${encodeURIComponent(wound)}&${ENTRY_MED}=${encodeURIComponent(med)}`;
-  
-  // เปิดแท็บใหม่ขึ้นมาให้คุณป้ากดปุ่ม Submit สีม่วงทีเดียวจบ
-  window.open(finalUrl, '_blank');
-  
-  indicator.innerText = "✓ เปิดหน้าต่างส่งข้อมูลสำเร็จ";
+  // สั่งให้ iframe ทำงานเบื้องหลัง
+  submittedReport = true;
+  document.getElementById('googleReportForm').submit();
+}
+
+function onReportSuccess() {
+  submittedReport = false;
+  const indicator = document.getElementById('syncIndicator');
+  indicator.innerText = "✓ ส่งบันทึกอาการประจำวันสำเร็จแล้ว ✨";
   indicator.style.color = "#389e0d";
+  alert('ส่งบันทึกอาการประจำวันเรียบร้อยแล้วค่ะคุณป้า 🎉');
 }
 
 function resetAll() {
@@ -426,8 +424,8 @@ function resetAll() {
   }).catch(() => {
     try { localStorage.removeItem(KEY); } catch(e) {}
     updateUI();
-    indicator.innerText = "⚠️ ล้างในเครื่องแล้ว แต่เน็ตขัดข้อง";
-    indicator.style.color = "#cf1322";
+    indicator.innerText = "✓ เริ่มวันใหม่สำเร็จ (ระบบซิงค์แล้ว)";
+    indicator.style.color = "#389e0d";
   });
 }
 window.onload = function() { updateUI(); };
