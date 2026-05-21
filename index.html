@@ -315,7 +315,8 @@ const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5b
 const ENTRY_TASK_ID = "entry.2076841301";
 const ENTRY_STATUS = "entry.1858284539";
 
-const REPORT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/formResponse";
+// ย้ายมาใช้แบบเปิดหน้าต่างฟอร์มจริง (สำหรับตัวบันทึกประจำวันเพื่อแก้ปัญหา 0 respond)
+const VIEW_REPORT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/viewform";
 const ENTRY_RASH = "entry.1608891468";
 const ENTRY_ITCH = "entry.1973469220";
 const ENTRY_WOUND = "entry.1240744944";
@@ -373,6 +374,7 @@ function toggleTask(id) {
   });
 }
 
+// ปรับมาใช้แผนสอง ยิงเปิดแท็บใหม่แบบออโต้ติ๊ก ชัวร์ร้อยเปอร์เซ็นต์
 function sendDailyReport() {
   const rash = document.getElementById('rep_rash').value;
   const itch = document.getElementById('rep_itch').value;
@@ -385,29 +387,17 @@ function sendDailyReport() {
   }
 
   const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งบันทึกประจำวัน...";
+  indicator.innerText = "กำลังส่งไปหน้าบันทึกจริง...";
   indicator.style.color = "#d48806";
 
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append(ENTRY_RASH, rash);
-  urlSearchParams.append(ENTRY_ITCH, itch);
-  urlSearchParams.append(ENTRY_WOUND, wound);
-  urlSearchParams.append(ENTRY_MED, med);
-
-  fetch(REPORT_FORM_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: urlSearchParams.toString()
-  }).then(() => {
-    indicator.innerText = "✓ ส่งบันทึกอาการประจำวันสำเร็จแล้ว ✨";
-    indicator.style.color = "#389e0d";
-    alert('ส่งบันทึกอาการประจำวันเรียบร้อยแล้วค่ะคุณป้า 🎉');
-  }).catch((error) => {
-    console.error("Error:", error);
-    indicator.innerText = "❌ ส่งบันทึกไม่สำเร็จ ตรวจสอบอินเทอร์เน็ต";
-    indicator.style.color = "#cf1322";
-  });
+  // สร้างลิงก์ที่กรอกข้อมูลเตรียมไว้ให้คุณป้าอัตโนมัติ
+  const finalUrl = `${VIEW_REPORT_URL}?usp=pp_url&${ENTRY_RASH}=${encodeURIComponent(rash)}&${ENTRY_ITCH}=${encodeURIComponent(itch)}&${ENTRY_WOUND}=${encodeURIComponent(wound)}&${ENTRY_MED}=${encodeURIComponent(med)}`;
+  
+  // เปิดแท็บใหม่ขึ้นมาให้คุณป้ากดปุ่ม Submit สีม่วงทีเดียวจบ
+  window.open(finalUrl, '_blank');
+  
+  indicator.innerText = "✓ เปิดหน้าต่างส่งข้อมูลสำเร็จ";
+  indicator.style.color = "#389e0d";
 }
 
 function resetAll() {
