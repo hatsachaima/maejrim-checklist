@@ -2,432 +2,259 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Checklist ลุง">
-<title>Checklist ดูแลคุณลุง @แม่จริม</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist คุณลุง</title>
+
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body {
-  font-family: 'Sarabun', 'Thonburi', 'Tahoma', sans-serif;
-  background: #f5f0eb;
-  color: #1a1614;
-  font-size: 16px;
-  min-height: 100vh;
-  padding-bottom: 40px;
-}
-.app { max-width: 480px; margin: 0 auto; padding: 14px 12px; }
-.header {
-  background: #1a1614;
-  border-radius: 16px;
-  padding: 18px 20px 16px;
-  margin-bottom: 12px;
-  text-align: center;
-}
-.header h1 { font-size: 20px; font-weight: 700; color: #ffffff; line-height: 1.3; }
-.header .disclaimer { font-size: 12px; color: #cc6666; margin-top: 6px; font-weight: bold; }
-.header .sync-status { font-size: 11px; color: #a0a0a0; margin-top: 4px; font-weight: bold; }
-.section {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-.section-title {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid #f5f0eb;
-  display: flex;
-  align-items: center;
-}
-.title-morning { color: #d48806; }
-.title-evening { color: #1d39c4; }
-.title-med { color: #389e0d; }
-.title-monitor { color: #cf1322; }
-.title-report { color: #722ed1; }
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 12px 0;
-  border-bottom: 1px dashed #f0e6df;
-}
-.item:last-child { border-bottom: none; }
-.item-text { flex: 1; padding-right: 12px; }
-.item-title { font-size: 15px; font-weight: 600; color: #2c2520; margin-bottom: 2px; }
-.item-desc { font-size: 13px; color: #665e57; line-height: 1.4; }
-.item-desc strong { color: #bd3a00; }
-.check-btn {
-  background: #fdfaf7;
-  border: 2px solid #d4c4b7;
-  color: #5c4d43;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s;
-  min-width: 80px;
-  text-align: center;
-}
-.check-btn.done {
-  background: #389e0d;
-  border-color: #389e0d;
-  color: #ffffff;
+body{
+    font-family:sans-serif;
+    background:#f5f0eb;
+    padding:20px;
+    color:#2c2520;
 }
 
-/* REPORT FORM STYLE */
-.form-group {
-  margin-bottom: 14px;
+.app{
+    max-width:480px;
+    margin:auto;
 }
-.form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #2c2520;
-  margin-bottom: 6px;
-}
-.form-select {
-  width: 100%;
-  padding: 12px;
-  font-family: inherit;
-  font-size: 15px;
-  color: #2c2520;
-  background-color: #fdfaf7;
-  border: 2px solid #d4c4b7;
-  border-radius: 12px;
-  outline: none;
-  cursor: pointer;
-}
-.submit-report-btn {
-  width: 100%;
-  background: #722ed1;
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.2s;
-}
-.submit-report-btn:active { background: #531dab; }
 
-.reset-container { text-align: center; margin-top: 20px; }
-.reset-btn {
-  background: #e8e8e8;
-  border: none;
-  color: #666;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
+h2{
+    margin-bottom:15px;
+}
+
+.section{
+    background:#fff;
+    padding:16px;
+    border-radius:14px;
+    margin-bottom:16px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.section-title{
+    font-weight:bold;
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.check-btn{
+    width:100%;
+    padding:14px;
+    margin:6px 0;
+    border:none;
+    border-radius:10px;
+    background:#fdfaf7;
+    border:1px solid #d4c4b7;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.check-btn.done{
+    background:#389e0d;
+    color:white;
+    font-weight:bold;
+}
+
+.form-select{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    margin-bottom:14px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+
+.submit-btn{
+    width:100%;
+    padding:15px;
+    background:#722ed1;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.reset-btn{
+    width:100%;
+    padding:12px;
+    background:#ddd;
+    border:none;
+    border-radius:10px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.status{
+    text-align:center;
+    margin-top:10px;
+    font-size:14px;
+    color:#666;
 }
 </style>
 </head>
+
 <body>
 
 <div class="app">
-  
-  <div class="header">
-    <h1>📋 ตารางงานคุณป้า รายวัน</h1>
-    <div class="disclaimer">⚠️ โรคยังไม่ยืนยัน ทำตามสเต็ปอย่างระมัดระวัง</div>
-    <div id="syncIndicator" class="sync-status">ระบบพร้อมบันทึกส่งพัทลุง</div>
-  </div>
 
-  <div class="section">
-    <div class="section-title title-morning">☀️ ช่วงเช้า: บำรุงชุ่มชื้น (งดทายาทาร์)</div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">1. พาลุงตากแดดเช้า</div>
-        <div class="item-desc">5-7 นาที ก่อน 08:30 น. <strong>ห้ามทาครีมใดๆ ก่อนตากแดด</strong></div>
-      </div>
-      <button class="check-btn" id="m1" onclick="toggleTask('m1')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">2. อาบน้ำเช้า</div>
-        <div class="item-desc">ฟอกสบู่ทาร์/แชมพูทาร์เบาๆ <strong>ห้ามใช้หินขัดหรือบวบถูแผล</strong></div>
-      </div>
-      <button class="check-btn" id="m2" onclick="toggleTask('m2')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">3. ทายูเรียเปิดผิว</div>
-        <div class="item-desc">ทาครีมยูเรีย 9% บางๆ <strong>เฉพาะจุดที่ผื่นหนาสากแห้ง</strong></div>
-      </div>
-      <button class="check-btn" id="m3" onclick="toggleTask('m3')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">4. โบกครีมบำรุงเซราวี</div>
-        <div class="item-desc">ทา CeraVe ครีมหนาๆ ทั่วตัวทันทีหลังเช็ดตัวหมาด</div>
-      </div>
-      <button class="check-btn" id="m4" onclick="toggleTask('m4')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">5. จัดวิตามินหลังอาหาร</div>
-        <div class="item-desc">ให้ลุงกิน Fish Oil + D3/K2 + B-Complex พร้อมน้ำสะอาด</div>
-      </div>
-      <button class="check-btn" id="m5" onclick="toggleTask('m5')">ทำแล้ว</button>
-    </div>
-  </div>
+<h2>📋 Checklist ดูแลคุณลุง</h2>
 
-  <div class="section">
-    <div class="section-title title-evening">🌙 ช่วงเย็น/ก่อนนอน: ห่อผ้าหมาด & ฝังยา</div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">1. อาบน้ำเย็นสบู่ทาร์</div>
-        <div class="item-desc">ทำความสะอาดร่างกายอย่างเบามือเหมือนตอนเช้า</div>
-      </div>
-      <button class="check-btn" id="e1" onclick="toggleTask('e1')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">2. เตรียมชุดผ้าฝ้ายหมาด</div>
-        <div class="item-desc">แช่เสื้อกางเกงน้ำเงินในน้ำอุ่นเปล่า บิดให้หมาดที่สุดจนเกือบแห้ง</div>
-      </div>
-      <button class="check-btn" id="e2" onclick="toggleTask('e2')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">3. ลงครีมบำรุงก่อนห่อผ้า</div>
-        <div class="item-desc">ทายูเรียบางๆ ตรงผื่น และโบก CeraVe ทับหนาๆ</div>
-      </div>
-      <button class="check-btn" id="e3" onclick="toggleTask('e3')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">4. ทำ Wet Wrap (30-45 นาที)</div>
-        <div class="item-desc">ใส่ชุดน้ำเงินที่หมาด แล้วสวมชุดเหลืองแห้งทับ ห้ามเกิน 1 ชม. / ห้ามใส่ค้างคืน</div>
-      </div>
-      <button class="check-btn" id="e4" onclick="toggleTask('e4')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">5. ถอดผ้าและตากผิวแห้งสนิท</div>
-        <div class="item-desc">ถอดชุดหมาดออก นั่งตากพัดลม 5-10 นาที จนผิวแห้งสนิทจริง</div>
-      </div>
-      <button class="check-btn" id="e5" onclick="toggleTask('e5')">ทำแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">6. แต้มยาทาร์รักษา (Open Air)</div>
-        <div class="item-desc">แต้มครีมทาร์ 2% บางๆ เฉพาะผื่นหนา ปล่อยโล่งเข้านอน <strong>ห้ามทาวาสลีนทับทาร์</strong></div>
-      </div>
-      <button class="check-btn" id="e6" onclick="toggleTask('e6')">ทำแล้ว</button>
-    </div>
-  </div>
+<div class="section">
 
-  <div class="section">
-    <div class="section-title title-med">💊 ยาแก้คันสีส้ม (ใช้เฉพาะเมื่อคันหนักนอนไม่หลับ)</div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">กินยาแก้คันสีส้มครึ่งเม็ด (5 mg)</div>
-        <div class="item-desc"><strong>กฎเหล็ก:</strong> วันไหนลุงดื่มเหล้า ห้ามกินยานี้เด็ดขาด! คืนไหนระงับอาการคันได้ให้งด</div>
-      </div>
-      <button class="check-btn" id="med1" onclick="toggleTask('med1')">กินแล้ว</button>
-    </div>
-  </div>
+<div class="section-title">☀️ Checklist ประจำวัน</div>
 
-  <div class="section">
-    <div class="section-title title-monitor">🚨 เช็กแผลสด & สัญญาณเตือนภัย</div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">ตรวจเช็กแผลเกาถลอก</div>
-        <div class="item-desc">ถ้ามีแผลสด: ล้างน้ำเกลือ ➡️ แต้ม Mupirocin (จากหมอ) ➡️ โบกวาสลีนทับ <strong>(ห้ามทาทาร์ทับแผลสด)</strong></div>
-      </div>
-      <button class="check-btn" id="em1" onclick="toggleTask('em1')">เช็กแล้ว</button>
-    </div>
-    <div class="item">
-      <div class="item-text">
-        <div class="item-title">ตรวจสแกนตุ่มหนอง / แสบร้อน</div>
-        <div class="item-desc">หากผิวแสบไหม้เฉียบพลัน หรือมีตุ่มหนองรอบรูขุมขน <strong>ให้หยุดครีมทาร์ทันที แล้วพาไป รพ.แม่จริม</strong></div>
-      </div>
-      <button class="check-btn" id="em2" onclick="toggleTask('em2')">เช็กแล้ว</button>
-    </div>
-  </div>
+<button class="check-btn" id="task1" onclick="toggleTask('task1')">
+1. ตากแดดเช้า
+</button>
 
-  <div class="section">
-    <div class="section-title title-report">📝 บันทึกสรุปอาการประจำวัน</div>
-    
-    <form id="googleReportForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/formResponse" method="POST" target="hidden_iframe">
-      <div class="form-group">
-        <label>1. สะเก็ด / ผื่น</label>
-        <select id="rep_rash" name="entry.1608891468" class="form-select" required>
-          <option value="">-- เลือก --</option>
-          <option value="ดีขึ้น">ดีขึ้น</option>
-          <option value="เท่าเดิม">เท่าเดิม</option>
-          <option value="แย่ลง">แย่ลง</option>
-        </select>
-      </div>
+<button class="check-btn" id="task2" onclick="toggleTask('task2')">
+2. อาบน้ำเช้า
+</button>
 
-      <div class="form-group">
-        <label>2. อาการคัน</label>
-        <select id="rep_itch" name="entry.1973469220" class="form-select" required>
-          <option value="">-- เลือก --</option>
-          <option value="น้อยลง">น้อยลง</option>
-          <option value="เท่าเดิม">เท่าเดิม</option>
-          <option value="มากขึ้น">มากขึ้น</option>
-        </select>
-      </div>
+<button class="check-btn" id="task3" onclick="toggleTask('task3')">
+3. ทาครีมบำรุง
+</button>
 
-      <div class="form-group">
-        <label>3. แผลสด</label>
-        <select id="rep_wound" name="entry.1240744944" class="form-select" required>
-          <option value="">-- เลือก --</option>
-          <option value="ไม่มี">ไม่มี</option>
-          <option value="มี — รักษาแล้ว">มี — รักษาแล้ว</option>
-          <option value="มี — น่าเป็นห่วง">มี — น่าเป็นห่วง</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>4. ยาสีส้ม</label>
-        <select id="rep_med" name="entry.1043049446" class="form-select" required>
-          <option value="">-- เลือก --</option>
-          <option value="ให้แล้ว (ครึ่งเม็ด)">ให้แล้ว (ครึ่งเม็ด)</option>
-          <option value="ให้แล้ว (1 เม็ด)">ให้แล้ว (1 เม็ด)</option>
-          <option value="ไม่ได้ให้">ไม่ได้ให้</option>
-          <option value="ไม่ให้ — ลุงดื่มเหล้า">ไม่ให้ — ลุงดื่มเหล้า</option>
-        </select>
-      </div>
-
-      <button type="button" class="submit-report-btn" onclick="validateAndSubmitReport()">📤 ส่งบันทึกประจำวันไปพัทลุง</button>
-    </form>
-  </div>
-
-  <div class="reset-container">
-    <button class="reset-btn" onclick="resetAll()">🔄 ล้างรายการ เริ่มต้นวันใหม่</button>
-  </div>
+<button class="check-btn" id="task4" onclick="toggleTask('task4')">
+4. กินวิตามิน
+</button>
 
 </div>
 
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submittedReport) { onReportSuccess(); }"></iframe>
+<div class="section">
+
+<div class="section-title">📝 บันทึกอาการ</div>
+
+<label>1. สะเก็ด / ผื่น</label>
+<select id="rep_rash" class="form-select">
+<option value="ดีขึ้น">ดีขึ้น</option>
+<option value="เท่าเดิม">เท่าเดิม</option>
+<option value="แย่ลง">แย่ลง</option>
+</select>
+
+<label>2. อาการคัน</label>
+<select id="rep_itch" class="form-select">
+<option value="น้อยลง">น้อยลง</option>
+<option value="เท่าเดิม">เท่าเดิม</option>
+<option value="มากขึ้น">มากขึ้น</option>
+</select>
+
+<label>3. แผลสด</label>
+<select id="rep_wound" class="form-select">
+<option value="ไม่มี">ไม่มี</option>
+<option value="มี — รักษาแล้ว">มี — รักษาแล้ว</option>
+<option value="มี — น่าเป็นห่วง">มี — น่าเป็นห่วง</option>
+</select>
+
+<label>4. ยาสีส้ม</label>
+<select id="rep_med" class="form-select">
+<option value="ให้แล้ว (ครึ่งเม็ด)">ให้แล้ว (ครึ่งเม็ด)</option>
+<option value="ให้แล้ว (1 เม็ด)">ให้แล้ว (1 เม็ด)</option>
+<option value="ไม่ได้ให้">ไม่ได้ให้</option>
+<option value="ไม่ให้ — ลุงดื่มเหล้า">ไม่ให้ — ลุงดื่มเหล้า</option>
+</select>
+
+<button class="submit-btn" onclick="submitDailyReport()">
+📤 ส่งบันทึกไปพัทลุง
+</button>
+
+<div class="status" id="statusText">
+ระบบพร้อมใช้งาน
+</div>
+
+<button class="reset-btn" onclick="resetAll()">
+🔄 ล้างข้อมูลวันนี้
+</button>
+
+</div>
+
+</div>
 
 <script>
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/formResponse";
-const ENTRY_TASK_ID = "entry.2076841301";
-const ENTRY_STATUS = "entry.1858284539";
 
-const KEY = 'maejrim_tasks_v1.1';
-let submittedReport = false;
+const STORAGE_KEY = "lung_checklist_v2";
 
-function loadState() {
-  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) { return {}; }
+function loadState(){
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
 }
-function saveState(state) {
-  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
+
+function saveState(data){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
-function updateUI() {
-  const state = loadState();
-  document.querySelectorAll('.check-btn').forEach(function(btn) {
-    const id = btn.id;
-    if (state[id]) {
-      btn.classList.add('done');
-      btn.innerText = "✓ เสร็จ";
-    } else {
-      btn.classList.remove('done');
-      btn.innerText = "ทำแล้ว";
+
+function toggleTask(id){
+
+    const state = loadState();
+
+    state[id] = !state[id];
+
+    saveState(state);
+
+    updateUI();
+}
+
+function updateUI(){
+
+    const state = loadState();
+
+    document.querySelectorAll(".check-btn").forEach(btn=>{
+
+        if(state[btn.id]){
+            btn.classList.add("done");
+            btn.innerHTML = "✓ " + btn.innerText;
+        }else{
+            btn.classList.remove("done");
+
+            btn.innerHTML = btn.innerText.replace("✓ ","");
+        }
+
+    });
+}
+
+function submitDailyReport(){
+
+    const rash = document.getElementById("rep_rash").value;
+    const itch = document.getElementById("rep_itch").value;
+    const wound = document.getElementById("rep_wound").value;
+    const med = document.getElementById("rep_med").value;
+
+    const status = document.getElementById("statusText");
+
+    status.innerText = "กำลังเปิดฟอร์มส่งข้อมูล...";
+
+    const base =
+    "https://docs.google.com/forms/d/e/1FAIpQLSdx7Pn-ISb132vhlCIfx8Qy22CZmVXvBd3E2xno8SxNoHkDjg/viewform?usp=pp_url";
+
+    const url =
+    base +
+    "&entry.1608891468=" + encodeURIComponent(rash) +
+    "&entry.1973469220=" + encodeURIComponent(itch) +
+    "&entry.1240744944=" + encodeURIComponent(wound) +
+    "&entry.1043049446=" + encodeURIComponent(med);
+
+    window.open(url, "_blank");
+
+    status.innerText = "✓ เปิดหน้าส่งข้อมูลแล้ว";
+}
+
+function resetAll(){
+
+    if(!confirm("ต้องการล้างข้อมูลวันนี้ใช่ไหม")){
+        return;
     }
-  });
-}
 
-function toggleTask(id) {
-  const state = loadState();
-  state[id] = !state[id];
-  const currentStatus = state[id] ? "done" : "undone";
-  saveState(state);
-  updateUI();
-  
-  const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งข้อมูลไปพัทลุง...";
-  indicator.style.color = "#d48806";
-  
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append(ENTRY_TASK_ID, id);
-  urlSearchParams.append(ENTRY_STATUS, currentStatus);
-  
-  fetch(GOOGLE_FORM_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: urlSearchParams.toString()
-  }).then(() => {
-    indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";
-    indicator.style.color = "#389e0d";
-  }).catch(() => {
-    indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";
-    indicator.style.color = "#389e0d";
-  });
-}
+    localStorage.removeItem(STORAGE_KEY);
 
-function validateAndSubmitReport() {
-  const rash = document.getElementById('rep_rash').value;
-  const itch = document.getElementById('rep_itch').value;
-  const wound = document.getElementById('rep_wound').value;
-  const med = document.getElementById('rep_med').value;
-
-  if(!rash || !itch || !wound || !med) {
-    alert('คุณป้ากรุณาเลือกตอบรายงานให้ครบทั้ง 4 ข้อก่อนส่งนะคะ 😊');
-    return;
-  }
-
-  const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งบันทึกประจำวัน...";
-  indicator.style.color = "#d48806";
-
-  submittedReport = true;
-  document.getElementById('googleReportForm').submit();
-}
-
-function onReportSuccess() {
-  submittedReport = false;
-  const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "✓ ส่งบันทึกอาการประจำวันสำเร็จแล้ว ✨";
-  indicator.style.color = "#389e0d";
-  alert('ส่งบันทึกอาการประจำวันเรียบร้อยแล้วค่ะคุณป้า 🎉');
-}
-
-function resetAll() {
-  if (!confirm('คุณป้าต้องการล้างรายการทั้งหมดเพื่อเริ่มวันใหม่ใช่ไหมครับ?')) return;
-  const indicator = document.getElementById('syncIndicator');
-  indicator.innerText = "กำลังส่งคำสั่งเริ่มวันใหม่...";
-  
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append(ENTRY_TASK_ID, "ALL_TASKS");
-  urlSearchParams.append(ENTRY_STATUS, "RESET_DAY");
-  
-  fetch(GOOGLE_FORM_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: urlSearchParams.toString()
-  }).then(() => {
-    try { localStorage.removeItem(KEY); } catch(e) {}
-    document.getElementById('rep_rash').value = "";
-    document.getElementById('rep_itch').value = "";
-    document.getElementById('rep_wound').value = "";
-    document.getElementById('rep_med').value = "";
     updateUI();
-    indicator.innerText = "✓ เริ่มวันใหม่สำเร็จ (ระบบซิงค์แล้ว)";
-    indicator.style.color = "#389e0d";
-  }).catch(() => {
-    try { localStorage.removeItem(KEY); } catch(e) {}
-    updateUI();
-    indicator.innerText = "✓ เริ่มวันใหม่สำเร็จ (ระบบซิงค์แล้ว)";
-    indicator.style.color = "#389e0d";
-  });
+
+    document.getElementById("statusText").innerText =
+    "ล้างข้อมูลเรียบร้อย";
 }
-window.onload = function() { updateUI(); };
+
+updateUI();
+
 </script>
 
 </body>
