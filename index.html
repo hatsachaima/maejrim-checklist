@@ -8,7 +8,6 @@
 <title>Checklist ดูแลคุณลุง @แม่จริม</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
 body {
   font-family: 'Sarabun', 'Thonburi', 'Tahoma', sans-serif;
   background: #f5f0eb;
@@ -17,10 +16,7 @@ body {
   min-height: 100vh;
   padding-bottom: 40px;
 }
-
 .app { max-width: 480px; margin: 0 auto; padding: 14px 12px; }
-
-/* HEADER */
 .header {
   background: #1a1614;
   border-radius: 16px;
@@ -31,8 +27,6 @@ body {
 .header h1 { font-size: 20px; font-weight: 700; color: #ffffff; line-height: 1.3; }
 .header .disclaimer { font-size: 12px; color: #cc6666; margin-top: 6px; font-weight: bold; }
 .header .sync-status { font-size: 11px; color: #a0a0a0; margin-top: 4px; }
-
-/* SECTION CARD */
 .section {
   background: #ffffff;
   border-radius: 16px;
@@ -53,8 +47,6 @@ body {
 .title-evening { color: #1d39c4; }
 .title-med { color: #389e0d; }
 .title-monitor { color: #cf1322; }
-
-/* CHECK ITEM */
 .item {
   display: flex;
   justify-content: space-between;
@@ -67,8 +59,6 @@ body {
 .item-title { font-size: 15px; font-weight: 600; color: #2c2520; margin-bottom: 2px; }
 .item-desc { font-size: 13px; color: #665e57; line-height: 1.4; }
 .item-desc strong { color: #bd3a00; }
-
-/* ACTION BUTTON */
 .check-btn {
   background: #fdfaf7;
   border: 2px solid #d4c4b7;
@@ -92,8 +82,6 @@ body {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
-/* RESET BUTTON */
 .reset-container { text-align: center; margin-top: 20px; }
 .reset-btn {
   background: #e8e8e8;
@@ -119,7 +107,6 @@ body {
 
   <div class="section">
     <div class="section-title title-morning">☀️ ช่วงเช้า: บำรุงชุ่มชื้น (งดทายาทาร์)</div>
-    
     <div class="item">
       <div class="item-text">
         <div class="item-title">1. พาลุงตากแดดเช้า</div>
@@ -127,7 +114,6 @@ body {
       </div>
       <button class="check-btn" id="m1" onclick="toggleTask('m1')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">2. อาบน้ำเช้า</div>
@@ -135,7 +121,6 @@ body {
       </div>
       <button class="check-btn" id="m2" onclick="toggleTask('m2')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">3. ทายูเรียเปิดผิว</div>
@@ -143,7 +128,6 @@ body {
       </div>
       <button class="check-btn" id="m3" onclick="toggleTask('m3')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">4. โบกครีมบำรุงเซราวี</div>
@@ -151,7 +135,6 @@ body {
       </div>
       <button class="check-btn" id="m4" onclick="toggleTask('m4')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">5. จัดวิตามินหลังอาหาร</div>
@@ -163,7 +146,6 @@ body {
 
   <div class="section">
     <div class="section-title title-evening">🌙 ช่วงเย็น/ก่อนนอน: ห่อผ้าหมาด & ฝังยา</div>
-    
     <div class="item">
       <div class="item-text">
         <div class="item-title">1. อาบน้ำเย็นสบู่ทาร์</div>
@@ -171,7 +153,6 @@ body {
       </div>
       <button class="check-btn" id="e1" onclick="toggleTask('e1')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">2. เตรียมชุดผ้าฝ้ายหมาด</div>
@@ -179,7 +160,6 @@ body {
       </div>
       <button class="check-btn" id="e2" onclick="toggleTask('e2')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">3. ลงครีมบำรุงก่อนห่อผ้า</div>
@@ -187,7 +167,6 @@ body {
       </div>
       <button class="check-btn" id="e3" onclick="toggleTask('e3')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">4. ทำ Wet Wrap (30-45 นาที)</div>
@@ -195,7 +174,6 @@ body {
       </div>
       <button class="check-btn" id="e4" onclick="toggleTask('e4')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">5. ถอดผ้าและตากผิวแห้งสนิท</div>
@@ -203,7 +181,6 @@ body {
       </div>
       <button class="check-btn" id="e5" onclick="toggleTask('e5')">ทำแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">6. แต้มยาทาร์รักษา (Open Air)</div>
@@ -226,7 +203,6 @@ body {
 
   <div class="section">
     <div class="section-title title-monitor">🚨 เช็กแผลสด & สัญญาณเตือนภัย</div>
-    
     <div class="item">
       <div class="item-text">
         <div class="item-title">ตรวจเช็กแผลเกาถลอก</div>
@@ -234,7 +210,6 @@ body {
       </div>
       <button class="check-btn" id="em1" onclick="toggleTask('em1')">เช็กแล้ว</button>
     </div>
-
     <div class="item">
       <div class="item-text">
         <div class="item-title">ตรวจสแกนตุ่มหนอง / แสบร้อน</div>
@@ -251,28 +226,17 @@ body {
 </div>
 
 <script>
-// ================= CONFIGURATION =================
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/formResponse"; 
-const ENTRY_TASK_ID = "entry.2076841301";   
-const ENTRY_STATUS = "entry.1858284539";    
-// ===============================================================
-
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2cwVSZwV7_5bVWt2ESdJpC99DAksfysFV0DXaX3l1DgHgng/formResponse";
+const ENTRY_TASK_ID = "entry.2076841301";
+const ENTRY_STATUS = "entry.1858284539";
 const KEY = 'maejrim_tasks_v1.1';
 
 function loadState() {
-  try {
-    return JSON.parse(localStorage.getItem(KEY) || '{}');
-  } catch(e) {
-    return {};
-  }
+  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) { return {}; }
 }
-
 function saveState(state) {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(state));
-  } catch(e) {}
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
 }
-
 function updateUI() {
   const state = loadState();
   document.querySelectorAll('.check-btn').forEach(function(btn) {
@@ -286,12 +250,10 @@ function updateUI() {
     }
   });
 }
-
 function toggleTask(id) {
   const state = loadState();
   state[id] = !state[id];
   const currentStatus = state[id] ? "done" : "undone";
-  
   saveState(state);
   updateUI();
   
@@ -299,38 +261,38 @@ function toggleTask(id) {
   indicator.innerText = "กำลังส่งข้อมูลไปพัทลุง...";
   indicator.style.color = "#d48806";
   
-  const formData = new FormData();
-  formData.append(ENTRY_TASK_ID, id);
-  formData.append(ENTRY_STATUS, currentStatus);
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append(ENTRY_TASK_ID, id);
+  urlSearchParams.append(ENTRY_STATUS, currentStatus);
   
   fetch(GOOGLE_FORM_URL, {
     method: "POST",
-    body: formData,
-    mode: "no-cors"
+    mode: "no-cors",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: urlSearchParams.toString()
   }).then(() => {
     indicator.innerText = "✓ บันทึกข้อมูลส่งพัทลุงสำเร็จ";
     indicator.style.color = "#389e0d";
   }).catch((error) => {
-    console.error("Error syncing with Google Sheets:", error);
+    console.error("Error:", error);
     indicator.innerText = "❌ เน็ตหลุด! แต่บันทึกในเครื่องแล้ว";
     indicator.style.color = "#cf1322";
   });
 }
-
 function resetAll() {
   if (!confirm('คุณป้าต้องการล้างรายการทั้งหมดเพื่อเริ่มวันใหม่ใช่ไหมครับ?')) return;
-  
   const indicator = document.getElementById('syncIndicator');
   indicator.innerText = "กำลังส่งคำสั่งเริ่มวันใหม่...";
   
-  const formData = new FormData();
-  formData.append(ENTRY_TASK_ID, "ALL_TASKS");
-  formData.append(ENTRY_STATUS, "RESET_DAY");
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append(ENTRY_TASK_ID, "ALL_TASKS");
+  urlSearchParams.append(ENTRY_STATUS, "RESET_DAY");
   
   fetch(GOOGLE_FORM_URL, {
     method: "POST",
-    body: formData,
-    mode: "no-cors"
+    mode: "no-cors",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: urlSearchParams.toString()
   }).then(() => {
     try { localStorage.removeItem(KEY); } catch(e) {}
     updateUI();
@@ -343,10 +305,7 @@ function resetAll() {
     indicator.style.color = "#cf1322";
   });
 }
-
-window.onload = function() {
-  updateUI();
-};
+window.onload = function() { updateUI(); };
 </script>
 
 </body>
